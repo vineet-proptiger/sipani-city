@@ -187,11 +187,11 @@ window.switchPlanTab = function (tab) {
 
 // ── 3. Gallery Lightbox Engine ───────────────────────────────
 const galleryItems = [
-  { src: 'images/gallery/g1.webp', title: 'Master Aerial View', category: 'Township Overview' },
-  { src: 'images/gallery/g2.webp', title: 'Grand Clubhouse & Promenade', category: 'Club & Architecture' },
-  { src: 'images/gallery/g3.webp', title: 'Grand Entrance Lobby', category: 'Tower Arrival' },
-  { src: 'images/gallery/g4.webp', title: 'Living & Dining Area', category: 'Luxury Residences' },
-  { src: 'images/gallery/g5.webp', title: 'Master Bedroom Suite', category: 'Luxury Residences' },
+  { src: '/images/gallery/g1.webp', title: 'Master Aerial View', category: 'Township Overview' },
+  { src: '/images/gallery/g2.webp', title: 'Grand Clubhouse & Promenade', category: 'Club & Architecture' },
+  { src: '/images/gallery/g3.webp', title: 'Grand Entrance Lobby', category: 'Tower Arrival' },
+  { src: '/images/gallery/g4.webp', title: 'Living & Dining Area', category: 'Luxury Residences' },
+  { src: '/images/gallery/g5.webp', title: 'Master Bedroom Suite', category: 'Luxury Residences' },
 ];
 
 let curGalleryIdx = 0;
@@ -207,7 +207,11 @@ window.openGalleryLightbox = function (idx) {
   if (!lb || !img) return;
 
   const item = galleryItems[curGalleryIdx];
-  img.src = item.src;
+  let imgSrc = item.src;
+  if (window.location.protocol === 'file:') {
+    imgSrc = imgSrc.replace(/^\//, '');
+  }
+  img.src = imgSrc;
   img.alt = item.title;
   if (title) title.innerText = item.title;
   if (category) category.innerText = item.category;

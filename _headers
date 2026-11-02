@@ -26,5 +26,8 @@
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/sipani-city*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /
   Cache-Control: public, max-age=0, must-revalidate
