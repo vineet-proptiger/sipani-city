@@ -2,7 +2,7 @@
    PROJECT CONFIGURATION (Browser JavaScript)
 =============================================================== */
 
-window.PROJECT_ID = "3528362";
+window.PROJECT_ID = "3528422";
 window.PROJECT_NAME = "Sipani City";
 window.DEVELOPER_NAME = "Sipani Properties";
 window.RERA_NO = "PRM/KA/RERA/1251/308/PR/171025/008179";
