@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sipanicity.co.in/sitemap.xml
+Sitemap: https://bengaluruluxuryapartments.co.in/sitemap.xml
