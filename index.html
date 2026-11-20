@@ -1,57 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Not Found</title>
-  <meta name="robots" content="noindex, nofollow">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: #0d0d0d;
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .error-card {
-      text-align: center;
-      max-width: 440px;
-      padding: 40px 30px;
-    }
-    .error-code {
-      font-size: 72px;
-      font-weight: 800;
-      letter-spacing: -2px;
-      color: #e5e7eb;
-      margin-bottom: 8px;
-      line-height: 1;
-    }
-    .error-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #9ca3af;
-      margin-bottom: 12px;
-    }
-    .error-desc {
-      font-size: 14px;
-      color: #6b7280;
-      line-height: 1.6;
-    }
-  </style>
-</head>
-<body>
-  <div class="error-card">
-    <div class="error-code">404</div>
-    <div class="error-title">Page Not Found</div>
-    <p class="error-desc">The page you are looking for does not exist or has been moved.</p>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Project Config (Event Config with Sheet Name 'Event') & Dev Helper -->
+    <script src="config-event.js?v=2.0"></script>
+    <script src="dev-local.js"></script>
+
+    <!-- Google Tag Manager & DataLayer Init -->
+    <script id="gtag-init">
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ city: window.CITY_DISPLAY || "Bangalore" });
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Default consent (required baseline)
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", window.GTM_ID || "GTM-575H8R87");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Marketing & Attribution Tracking Cookie Setup -->
+    <script src="formMeta.js?v=2.0"></script>
+
+    <!-- SEO Meta & Titles -->
+    <title>Sipani City Sarjapur Road | Exclusive Event</title>
+    <meta
+      name="description"
+      content="Sipani City on Sarjapur Road, Bangalore offers premium 2, 2.5 &amp; 3 BHK apartments in a 70-acre township. Starting from ₹83 Lakhs*."
+    />
+    <link rel="canonical" href="https://bengaluruluxuryapartments.co.in/" />
+
+    <link rel="icon" type="image/png" href="favicon/favicon.png" />
+    <link rel="shortcut icon" href="favicon/favicon.png" />
+    <link rel="apple-touch-icon" href="favicon/favicon.png" />
+
+    <!-- OpenGraph & Social Media -->
+    <meta property="og:title" content="Sipani City Sarjapur Road | Exclusive Event" />
+    <meta
+      property="og:description"
+      content="Sipani City on Sarjapur Road, Bangalore offers premium 2, 2.5 &amp; 3 BHK apartments in a 70-acre township. Starting from ₹83 Lakhs*."
+    />
+    <meta property="og:image" content="https://bengaluruluxuryapartments.co.in/main-domain-img/banner1.webp" />
+    <meta property="og:url" content="https://bengaluruluxuryapartments.co.in/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="form.css?v=2.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 100%;
+        min-height: 100%;
+        background-color: #0d0d0d;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .banner-wrapper {
+        width: 100%;
+        cursor: pointer;
+        position: relative;
+        background: #0d0d0d;
+        display: block;
+        line-height: 0;
+      }
+      .banner-wrapper picture {
+        display: block;
+        width: 100%;
+      }
+      .banner-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      /* Floating Enquire Button */
+      .enquire-float-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 40;
+        background: linear-gradient(135deg, #dfba73 0%, #c49a4f 100%);
+        color: #111;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 13px 26px;
+        border-radius: 50px;
+        border: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(223, 186, 115, 0.4);
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .enquire-float-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(223, 186, 115, 0.6);
+      }
+      @media (max-width: 640px) {
+        .enquire-float-btn {
+          bottom: 16px;
+          right: 16px;
+          padding: 11px 20px;
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-575H8R87"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Responsive, Uncropped Image Banner (Desktop & Mobile) -->
+    <main class="banner-wrapper" onclick="openLeadModal('Exclusive Event Enquiry')">
+      <picture>
+        <!-- Mobile (< 768px) -->
+        <source media="(max-width: 767px)" srcset="main-domain-img/smDevice.webp" />
+        <!-- Tablet (768px - 1024px) -->
+        <source media="(max-width: 1024px)" srcset="main-domain-img/tab.webp" />
+        <!-- Medium Laptop (1025px - 1366px) -->
+        <source media="(max-width: 1366px)" srcset="main-domain-img/banner2.webp" />
+        <!-- Desktop / Large Screens (> 1366px) -->
+        <img
+          src="main-domain-img/banner1.webp"
+          alt="Sipani City Sarjapur Road"
+        />
+      </picture>
+    </main>
+
+    <!-- Floating Enquire Button -->
+    <button
+      type="button"
+      class="enquire-float-btn"
+      onclick="openLeadModal('Exclusive Event Enquiry')"
+    >
+      Enquire Now
+    </button>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         POPUP ENQUIRY MODAL (Auto-triggers every 5 seconds)
+         ══════════════════════════════════════════════════════════════════ -->
+    <div
+      id="leadModal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+      style="display: none; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+      onclick="if(event.target === this) closeLeadModal()"
+    >
+      <div
+        style="background: #ffffff; width: 100%; max-width: 440px; border-radius: 18px; box-shadow: 0 25px 60px rgba(0,0,0,0.5); position: relative; padding: 32px 26px 26px; max-height: 90vh; overflow-y: auto;"
+        onclick="event.stopPropagation()"
+      >
+        <!-- Close Button -->
+        <button
+          type="button"
+          onclick="closeLeadModal()"
+          style="position: absolute; top: 16px; right: 18px; background: #f3f4f6; border: none; cursor: pointer; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #4b5563; line-height: 1; border-radius: 50%; transition: background 0.2s, color 0.2s;"
+          onmouseenter="this.style.background='#333333'; this.style.color='#fff';"
+          onmouseleave="this.style.background='#f3f4f6'; this.style.color='#4b5563';"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+
+        <!-- Header Tag -->
+        <div style="text-align: center; margin-bottom: 8px;">
+          <span style="background: #fdf6ec; color: #a38038; border: 1px solid #ebd3a8; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 20px;">
+            Exclusive Event Offer
+          </span>
+        </div>
+
+        <!-- Heading -->
+        <h2
+          class="modal-dynamic-heading"
+          style="color: #1a1a1a; font-weight: 700; font-size: 22px; margin: 4px 0 6px; letter-spacing: -0.01em; text-align: center;"
+        >
+          ENQUIRE NOW
+        </h2>
+
+        <p style="text-align: center; font-size: 13px; color: #6b7280; margin: 0 0 20px;">
+          Register to receive instant pricing sheet &amp; event privileges.
+        </p>
+
+        <!-- Form -->
+        <form
+          id="modalForm"
+          class="rs-lead-form"
+          onsubmit="return RSLeadSubmit(this, event);"
+          novalidate
+        >
+          <!-- Hidden Inputs -->
+          <input type="hidden" name="form_name" value="Event Popup Modal" />
+          <input type="hidden" name="projectId" value="3528422" />
+          <input type="hidden" name="projectName" value="Sipani City" />
+          <input type="hidden" name="sheet_name" value="Event" />
+          <input type="hidden" name="secret" value="6c7f9ad8b2a1e0f4d5a8c0b9f6e2a4d190" />
+          <input type="hidden" name="city" value="Bangalore" />
+          <input type="hidden" name="utm_source" value="" />
+          <input type="hidden" name="utm_medium" value="" />
+          <input type="hidden" name="utm_campaign" value="" />
+          <input type="hidden" name="utm_term" value="" />
+          <input type="hidden" name="utm_content" value="" />
+          <input type="hidden" name="gclid" value="" />
+          <input type="hidden" name="gbraid" value="" />
+          <input type="hidden" name="wbraid" value="" />
+          <input type="hidden" name="fbclid" value="" />
+          <input type="hidden" name="device" value="" />
+          <input type="hidden" name="referrer" value="" />
+          <input type="hidden" name="landing_page" value="" />
+          <input type="hidden" name="ipaddress" value="" />
+
+          <!-- Name -->
+          <div style="margin-bottom: 14px;">
+            <input
+              name="fullname"
+              required
+              placeholder="Full Name *"
+              style="width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 14px; color: #1f2937; font-size: 14px; outline: none; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='#dfba73'; this.style.boxShadow='0 0 0 3px rgba(223, 186, 115, 0.25)';"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div style="margin-bottom: 14px;">
+            <input
+              name="phone"
+              required
+              maxlength="10"
+              placeholder="Mobile Number (10 digits) *"
+              style="width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 14px; color: #1f2937; font-size: 14px; outline: none; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='#dfba73'; this.style.boxShadow='0 0 0 3px rgba(223, 186, 115, 0.25)';"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
+            />
+          </div>
+
+          <!-- Email -->
+          <div style="margin-bottom: 16px;">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email Address (Optional)"
+              style="width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 14px; color: #1f2937; font-size: 14px; outline: none; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='#dfba73'; this.style.boxShadow='0 0 0 3px rgba(223, 186, 115, 0.25)';"
+              onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
+            />
+          </div>
+
+          <!-- Feedback message -->
+          <div data-form-message style="font-size: 12px; font-weight: 600; color: #ef4444; margin-bottom: 8px;"></div>
+
+          <!-- Consent -->
+          <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 18px;">
+            <input
+              type="checkbox"
+              id="event-popup-privacy"
+              required
+              checked
+              style="accent-color: #000000; margin-top: 3px; flex-shrink: 0; width: 15px; height: 15px;"
+            />
+            <label for="event-popup-privacy" style="font-size: 11.5px; color: #6b7280; line-height: 1.4; cursor: pointer;">
+              I agree to receive calls/WhatsApp updates regarding this event as per the <a href="/privacy-policy.html" target="_blank" style="color: #111; font-weight: 600; text-decoration: underline;">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            style="background: #000000; color: #ffffff; border: 2px solid #000000; padding: 13px 28px; font-weight: 700; font-size: 14.5px; letter-spacing: 0.04em; cursor: pointer; border-radius: 8px; transition: all 0.25s ease; width: 100%;"
+            onmouseenter="this.style.background='#222'; this.style.borderColor='#222';"
+            onmouseleave="this.style.background='#000'; this.style.borderColor='#000';"
+          >
+            SUBMIT ENQUIRY
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="form-integration.js?v=14.0"></script>
+    <script>
+      // ── Modal & 5-Second Popup Engine ─────────────────────────────
+      let popupTimer = null;
+
+      function schedulePopup(delayMs) {
+        if (popupTimer) clearTimeout(popupTimer);
+        popupTimer = setTimeout(function () {
+          try {
+            // If lead already submitted, do not annoy the user
+            if (localStorage.getItem('_lsub_done')) return;
+          } catch (e) {}
+
+          const modal = document.getElementById('leadModal');
+          if (modal && modal.style.display !== 'flex') {
+            window.openLeadModal();
+          }
+        }, delayMs || 5000);
+      }
+
+      window.openLeadModal = function (titleText) {
+        const modal = document.getElementById('leadModal');
+        if (!modal) return;
+
+        if (titleText) {
+          const heading = modal.querySelector('.modal-dynamic-heading');
+          if (heading) heading.innerText = titleText;
+        }
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeLeadModal = function () {
+        const modal = document.getElementById('leadModal');
+        if (!modal) return;
+
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+
+        // Schedule popup again after 5 seconds
+        schedulePopup(5000);
+      };
+
+      // Escape key to close modal
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          window.closeLeadModal();
+        }
+      });
+
+      // Automatically trigger popup 5 seconds after page load
+      document.addEventListener('DOMContentLoaded', function () {
+        schedulePopup(5000);
+      });
+    </script>
+  </body>
 </html>
